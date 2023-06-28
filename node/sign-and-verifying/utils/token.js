@@ -18,7 +18,8 @@ export const signToken = (user) => {
 };
 
 export const verifyToken = (token) => {
-  return {exp: 122222222222555555};
+  let data = jwt.verify(token,SECRET)
+  return data
 };
 
 export const validateExpiration = (payload) => {
