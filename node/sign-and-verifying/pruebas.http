@@ -1,0 +1,19 @@
+# https://learn.microsoft.com/es-mx/aspnet/core/test/http-files?view=aspnetcore-8.0
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+@hostname=localhost
+@port=3001
+@rootUrl=http://{{hostname}}:{{port}}
+###
+GET {{rootUrl}}/public HTTP/1.1
+
+
+###
+GET {{rootUrl}}/private HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqdWFuIiwibmFtZSI6Ikp1YW4gZmVsaXBlIiwiZXhwIjoxNjg3OTc0MDg0NzMwLCJpYXQiOjE2ODc5NzQwMjR9.nbBwZEImPb94Blxzldzgzl1srhehKPUMN3jRypml6k4==
+
+
+###
+POST {{rootUrl}}/token HTTP/1.1
+Content-Type: application/json
+Authorization: Basic juan:7u4n
