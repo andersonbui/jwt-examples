@@ -1,0 +1,42 @@
+# https://learn.microsoft.com/es-mx/aspnet/core/test/http-files?view=aspnetcore-8.0
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+@hostname=localhost
+@port=5000
+@rootUrl=http://{{hostname}}:{{port}}
+###
+GET {{rootUrl}}/public HTTP/1.1
+
+
+###
+GET {{rootUrl}}/user HTTP/1.1
+x-access-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfaWQiOiJkNjY0MmIyZC1hZWVhLTQxZmQtYmE0Mi00YTdiZjMwYjU1ZmQiLCJleHAiOjE2ODc5ODAwNjB9.PGf3yNpRoe9nedjAe1NTOR7uJLIepMHMm2kaY7j1kZA
+
+
+###
+POST {{rootUrl}}/login HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="email"
+
+ejemplo@unmail.com
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="password"
+
+un-password
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+POST {{rootUrl}}/signup HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="email"
+
+ejemplo@unmail.com
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="password"
+
+un-password
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
